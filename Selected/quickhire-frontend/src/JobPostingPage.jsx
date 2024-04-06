@@ -5,9 +5,11 @@ import axios from 'axios';
 const JobPostingPage = () => {
   const formik = useFormik({
     initialValues: {
-      title: '',
-      description: '',
-      location: '',
+      jobTitle: '',
+      pay: '',
+      startDate:'',
+      endDate:'',
+      qualifications:''
     },
     onSubmit: values => {
       axios.post('http://localhost:8080/api/jobs', values)
@@ -27,29 +29,51 @@ const JobPostingPage = () => {
       <h2>Post a Job</h2>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor="title">Job Title</label>
+          <label htmlFor="jobTitle">Job Title</label>
           <input
-            id="title"
-            name="title"
+            id="jobTitle"
+            name="jobTitle"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.title}
           />
         </div>
         <div>
-          <label htmlFor="description">Job Description</label>
-          <textarea
-            id="description"
-            name="description"
+          <label htmlFor="startDate">startDate</label>
+          <input
+          type='date'
+            id="startDate"
+            name="startDate"
             onChange={formik.handleChange}
             value={formik.values.description}
           />
         </div>
         <div>
-          <label htmlFor="location">Location</label>
+          <label htmlFor="endDate">endDate</label>
           <input
-            id="location"
-            name="location"
+            id="endDate"
+            type='date'
+            name="endDate"
+            
+            onChange={formik.handleChange}
+            value={formik.values.location}
+          />
+        </div>
+        <div>
+          <label htmlFor="pay">pay</label>
+          <input
+            id="pay"
+            name="pay"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.location}
+          />
+        </div>
+        <div>
+          <label htmlFor="qualifications">qualifications</label>
+          <input
+            id="qualifications"
+            name="qualifications"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.location}

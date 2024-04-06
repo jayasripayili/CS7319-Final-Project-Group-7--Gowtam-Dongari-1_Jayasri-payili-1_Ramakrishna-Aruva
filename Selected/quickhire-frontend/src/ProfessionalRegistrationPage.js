@@ -5,13 +5,13 @@ import axios from 'axios';
 const ProfessionalRegistrationPage = () => {
   const formik = useFormik({
     initialValues: {
-      name: '',
+      firstName: '',
+      lastName:'',
       email: '',
-      password: '',
-      profession: '',
+      password: ''
     },
     onSubmit: values => {
-      axios.post('http://localhost:8080/api/professionals', values)
+      axios.post('http://localhost:8080/professional/register', values)
         .then(response => {
           alert('Registration successful!');
           // Additional actions on success, e.g., redirecting to a confirmation page or login page
@@ -28,10 +28,10 @@ const ProfessionalRegistrationPage = () => {
       <h2>Professional Registration</h2>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="firstName">firstName</label>
           <input
-            id="name"
-            name="name"
+            id="firstName"
+            name="firstName"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.name}
@@ -58,10 +58,10 @@ const ProfessionalRegistrationPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="profession">Profession</label>
+          <label htmlFor="lastName">lastName</label>
           <input
-            id="profession"
-            name="profession"
+            id="lastName"
+            name="lastName"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.profession}

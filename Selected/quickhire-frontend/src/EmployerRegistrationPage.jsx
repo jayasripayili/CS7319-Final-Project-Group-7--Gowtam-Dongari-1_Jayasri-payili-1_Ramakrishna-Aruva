@@ -8,10 +8,11 @@ const EmployerRegistrationPage = () => {
       companyName: '',
       email: '',
       password: '',
-      industry: '',
+      firstName: '',
+      lastName:'',
     },
     onSubmit: values => {
-      axios.post('http://localhost:8080/api/employers', values)
+      axios.post('http://localhost:8080/employer/register', values)
         .then(response => {
           alert('Registration successful!');
           // Additional actions on success, e.g., redirect to login or dashboard
@@ -58,10 +59,20 @@ const EmployerRegistrationPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="industry">Industry</label>
+          <label htmlFor="firstName">firstName</label>
           <input
-            id="industry"
-            name="industry"
+            id="firstName"
+            name="firstName"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.industry}
+          />
+        </div>
+        <div>
+          <label htmlFor="lastName">lastName</label>
+          <input
+            id="lastName"
+            name="lastName"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.industry}
