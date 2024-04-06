@@ -54,7 +54,7 @@ const JobPostingPage = () => {
             id="endDate"
             type='date'
             name="endDate"
-            
+             
             onChange={formik.handleChange}
             value={formik.values.location}
           />
